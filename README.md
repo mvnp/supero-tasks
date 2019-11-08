@@ -2,47 +2,43 @@
 
 ## Projeto
 Este projeto consiste num sistema de gestão diária de tarefas que pode ser evoluido conforme necessidade. Hoje, ele já adiciona, atualiza, exclui as tarefas além de ter várias funcionalidades diferenciais para gestão completa das tarefas. Dentre as funcionalidades estão:
-- Criação das Tarefas
+- Cadastro das Tarefas
 - Exclusão das Tarefas
-- Atualização das tarefas para:
+- Atualização das Tarefas:
   - Novo
   - Executando
   - Aguardando
   - Urgente
   - Finalizado
 
+O sistema está preparado para apontar o autor da tarefas e o executor das tarefas e também conta com data final para entrega da tarefa. Também foi inserido um motor de busca rápida que filtra as tarefas por status no momento da solicitação e um motor de busca especializado que busca por:
+ - Intervalo das Tarefas
+ - Status das Tarefas
+ - Autor das Tarefas
+ - Executor das Tarefas .. todas os itens podendo ser buscados simultaneamente ou de forma individual.
 
+Foi desenhado no formato de uma timeline mostrando das tarefas mais recentes as tarefas mais futuras permitindo assim um acompanhamento cronológico das tarefas dia a dia e havendo a possibilidade através do filtro a busca de um dia em específico.
 
+## O Código
+Todo o código das pastas:
+ - Controllers
+ - Core
+ - Models
+ - Utils
+ - Views foram produzidas por mim no processo de criação do sistema de tarefas. Eu usei o sistema MVC (Model, View, Controller) para separar as camadas de desenvolvimento e comentei todo o código em inglês para que além dos padrões internacionais, os devs possam se ajudar dos comentários para entendimento do projeto. 
 
-- **views/administrador/adminlte**
+## Composer
+Foi usando composer para carregar as classes com autoload não precisando dar requires pra todo canto obedecendo assim as psr's de desenvolvimento conforme determinado pelos projetos PHP-FIG e http://br.phptherightway.com .. Foi respeitando alguns conceitos de SOLID para separação de responsabilidades.
 
-É requisito trabalhar e enviar pull requests na branch **dev**
-
-## Olá a todos! Feliz por estarem aqui!
-Desenvolvi esse framework PHP baseado em vídeo-aulas dessa playlist (https://www.youtube.com/watch?v=Aw28-krO7ZM&list=PL7A20112CF84B2229), juntas essas aulas somam 6:00:00 e transformando em aprendizado, acho que dá pra multiplicar o esforço por 10, o que dá umas 60 horas para desenvolver passo a passo.
-
-## Funcional e PHP7
-Este framework foi desenvolvido na versão 5.6.40 do PHP mas ao trocar o servidor para a versão 7.2.22, o framework não deixou de funcionar, então é totalmente compatível com as versões mais novas do PHP.
-
-## Pŕoximos passos
-Os proxímos passos provavelmente consistem em integrar uma interface administrativa baseada no Bootstrap 4.0 talvez usando o AdminTLE e também colocar todas essas classes para carregar com composer. O paradigma MVC foi sado, então é daquele jeito:
-
-- faz as pesquisas na model
-- pega o resultado no controller
-- transfere o resultado para as views
+**não refatorei o código, simplesmente escrevi e entreguei, foram 16h de trabalho**
 
 ## jQuery e javascript
-A jQuery está carregada no MVC e já existe por exemplo na url ***Dashboard*** um insert via ajax. Cada controller tem sua pasta nas views, é uma forma bem organizada de colocar os arquivos e não se perder no processo de desenvolvimento. Header e footer são carregados uma vez para todas as views, também podem ser persinalizados os headers e footers para cada view (vide /core/View.php)
+Escrevi códigos javascript/ajax para dar performance ao sistema principalmente na parte de gestão das tarefas aonde não existe reload da página para mudança de status e pode ser observado quando o status é trocado pela mudança de layout que é inferida.
 
-## Setup
-Basta renomear o **config.example.php** para **config.php** e colocar os dados da sua hospedagem ou do seu localhost. Depois acesse http://meusdominio/minpasta caso o projeto esteja em alguma pasta ou acessar a raiz caso projeto esteja na raiz. Precisa gerar no banco de dados um primeiro usuário e senha para começar a mexer na dashboard.
-
-## Gerando uma senha - Faça depois da última linha do index.php
-echo Hash::create("sha256", "123456", HASH_PASSWORD_KEY);
+## PHP
+O projeto está rodando no servidor em PHP7.3, versão mais atual e estável no momento.
 
 ## ModRewrite
-O .htaccess e o banco de dados estão sendo anexados ao projeto para que possam usá-los como base e configurações para configurar e usar o projeto.
+O .htaccess e o banco de dados estão sendo anexados ao projeto.
 
-### Valeu galera
-
-#### Aguardo contribuições de código
+# Abraço do Marcos
