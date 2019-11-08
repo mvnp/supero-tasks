@@ -31,7 +31,7 @@ Todo o código das pastas:
 Foi usando composer para carregar as classes com autoload não precisando dar requires pra todo canto obedecendo assim as psr's de desenvolvimento conforme determinado pelos projetos PHP-FIG e http://br.phptherightway.com .. Foi respeitando alguns conceitos de SOLID para separação de responsabilidades.
 
 **não refatorei o código, simplesmente escrevi e entreguei, foram 16h de trabalho**
-===================================================================================
+---
 
 ## jQuery e javascript
 Escrevi códigos javascript/ajax para dar performance ao sistema principalmente na parte de gestão das tarefas aonde não existe reload da página para mudança de status e pode ser observado quando o status é trocado pela mudança de layout que é inferida.
