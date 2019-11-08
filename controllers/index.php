@@ -1,12 +1,12 @@
 <?php 
 namespace Controllers;
 
-/**
- * Redirect to login of Tasks
- * Used on Bootstrap File to Router System
- */
 class Index extends \App\Controller
 {
+	/**
+	 * Redirect To System Login
+	 * @return [type] [description]
+	 */
 	public function index()
 	{
 		header("Location: " . URL . "login");

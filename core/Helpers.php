@@ -2,10 +2,6 @@
 
 namespace App;
 
-/**
- * Functions To Modify PHP Responses And
- * Remove PHP Codes inside Views Files
- */
 class Helpers 
 {
 	/**
@@ -38,6 +34,10 @@ class Helpers
 		return $backg;
 	}
 
+	/**
+	 * Use To Convert And Return Data
+	 * @return [type] [description]
+	 */
 	public static function convertDateToPTBR($date) 
 	{
 		$date = strftime('%A, %d de %B de %Y', strtotime($date));

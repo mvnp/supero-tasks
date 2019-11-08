@@ -10,6 +10,10 @@ class Login_Model extends \App\Model
 		parent::__construct();
 	}
 
+	/**
+	 * Verify Data User To Authorize User
+	 * @return [type] [description]
+	 */
 	public function run()
 	{
 		$password = \App\Hash::create('sha256', $_POST['senha'], HASH_PASSWORD_KEY);

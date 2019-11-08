@@ -9,7 +9,7 @@ class Tasks_Model extends \App\Model
 	}
 
 	/**
-	 * Select All Tasks Dates To Foreach Tasks
+	 * Select All Tasks Dates To Foreach This
 	 * @return [type] [description]
 	 */
 	public function selectGoupedTasksDates()
@@ -18,8 +18,7 @@ class Tasks_Model extends \App\Model
 	}
 
 	/**
-	 * Select All Tasks Date by Date
-	 * @param  [type] $tasksDates [description]
+	 * Draw Timeline With Simple Filter Data
 	 * @return [type] [description]
 	 */
 	public function selectTasksGoupedByDates($tasksDates, $filter = null)
@@ -65,6 +64,10 @@ class Tasks_Model extends \App\Model
 		return $tasks;
 	}
 
+	/**
+	 * Draw Timeline With Specialized Filter Data
+	 * @return [type] [description]
+	 */
 	public function selectTasksGoupedByDatesWithSearch($pstFilter)
 	{		
 		$tasks = [];
@@ -153,26 +156,46 @@ class Tasks_Model extends \App\Model
 		return $tasks;		
 	}
 
+	/**
+	 * Set Task Status To New
+	 * @return [type] [description]
+	 */
 	public function setToNew(Array $postData)
 	{
 		return $this->db->update('supero_tasks', $postData, "id = {$postData['id']}");
 	}
 
+	/**
+	 * Set Task Status To Working
+	 * @return [type] [description]
+	 */
 	public function setToWork(Array $postData)
 	{
 		return $this->db->update('supero_tasks', $postData, "id = {$postData['id']}");
 	}
 
+	/**
+	 * Set Task Status To Waiting
+	 * @return [type] [description]
+	 */
 	public function setToWaiting(Array $postData)
 	{
 		return $this->db->update('supero_tasks', $postData, "id = {$postData['id']}");
 	}
 
+	/**
+	 * Set Task Status To Urgent
+	 * @return [type] [description]
+	 */
 	public function setToUrgent(Array $postData)
 	{
 		return $this->db->update('supero_tasks', $postData, "id = {$postData['id']}");
 	}
 
+	/**
+	 * Set Task Status To Finished
+	 * @return [type] [description]
+	 */
 	public function setToFinished(Array $postData)
 	{
 		return $this->db->update('supero_tasks', $postData, "id = {$postData['id']}");
@@ -188,16 +211,16 @@ class Tasks_Model extends \App\Model
 	}
 
 	/**
-	 * Insert New Task On Database
+	 * Select All Users On Database
 	 * @param  [type] $table [description]
 	 */
-	public function select()
+	public function selectUsers()
 	{
 		return $stmt = $this->db->select("SELECT id, name FROM supero_users ORDER BY name ASC");
 	}
 
 	/**
-	 * Delete Specific Task
+	 * Delete Specific Task On Database
 	 * @param  [type] $table [description]
 	 */
 	public function delspecifictask($id)

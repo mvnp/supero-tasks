@@ -6,9 +6,12 @@ class Error extends \App\Controller
 	public function __construct()
 	{
 		parent::__construct();
-		# \App\Session::init();
 	}
 
+	/**
+	 * Function Load 404 Error Page If Url Not Exists
+	 * @return [type] [description]
+	 */
 	public function index()
 	{
 		$this->view->title = "404 Error | MVC System";
