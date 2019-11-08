@@ -1,0 +1,56 @@
+.timeline > li > .timeline-item > .time {
+  color: #636363 !important;
+}
+#tasks .bg-green-mod {
+  background-color: #bcfbc4 !important;
+  color: #3a3a3a;
+}
+.bg-new-mod {
+  background-color:#d3ebf9 !important;
+  color: #3a3a3a;
+}
+#tasks .bg-red-mod {
+  background-color: #dd4b3982!important;
+  color: #3a3a3a;
+}
+#tasks .bg-red-mod h3 a {
+  color: #256591;
+}
+#tasks .bg-yellow-mod {
+  background-color: #f39c1266!important;
+  color: #3a3a3a;
+}
+#tasks .bg-white-mod {
+  background-color: #ffffff!important;
+}
+.bg-blue {
+  background-color: #3c8dbc !important;
+  color: #ffffff;
+}
+#tasks h4 {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 15px;
+}
+#buscar .form-group {
+  margin-bottom: 8px !important;
+}
+.daterangepicker .calendar-time {
+  display: none !important;
+}
+.datepicker.datepicker-dropdown {
+  z-index: 9999 !important;
+}
+
+/*
+ * Task Box de Cadastro de Tarefas
+ */
+@media all and (min-width: 920px){
+  #taskBox {
+    max-width: 75% !important;
+  } 
+  .daterangepicker {
+    right: 750px !important;
+    width: 535px !important;
+  }
+}

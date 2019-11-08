@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+body {
+	background: silver
+}
+
+.fullwidth { width:100% !important }
+.valign-bottom { vertical-align: bottom !important }
+
+#header {
+    background: #182571;
+    padding: 28px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom: 5px solid #2738a0fa;
+}
+
+#header a {
+	padding: 8px 15px;
+    border: 1px solid #ffffff3b;
+    background: #ffffff61;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: arial;
+    font-size: 14px;
+}
+
+#content {
+    font-family: 'Roboto', sans-serif;
+	background: #fff;
+	padding: 20px
+} 
+
+#footer {
+	background: #182571;
+	color: #ffffff;
+	padding: 28px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-top: 5px solid #2738a0fa;
+}
+
+table.login {
+    margin-left: 100px;
+}
+
+table.login label {
+  
+}
+
+table.login input[type='text'],
+table.login input[type='password'] {
+    height: 20px;
+    border-radius: 5px;
+    border: 1px solid #bbb;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+table.login input[type='submit'] {
+    margin-top: 10px;
+    width: 100px;
+    height: 37px;
+    border-radius: 5px;
+    border: 1px solid #2d5024;
+    background: #2d5024;
+    color: #ffffff;
+    cursor: pointer;
+    margin-bottom: 40px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+table.registerUser input[type='submit'] {
+    margin-top: 10px;
+    width: 100px;
+    height: 37px;
+    border-radius: 5px;
+    border: 1px solid #2d5024;
+    background: #2d5024;
+    color: #ffffff;
+    cursor: pointer;
+    margin-bottom: 40px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+table.login.registerUser select {
+    height: 35px;
+    width: 189px;
+    border-radius: 5px;
+    border: 1px solid #bbb;
+    background: #e8f0fe;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    padding: 5px; 
+}
+
+table.login.user td, table.login.user th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table.login.user tr:nth-child(even){background-color: #f2f2f2;}
+
+table.login.user tr:hover {background-color: #ddd;}
+
+table.login.user th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+table.login input.password_change[type='submit'] {
+    margin-bottom: 0;
+    height: 32px;
+    margin-left: 5px;
+}
