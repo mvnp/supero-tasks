@@ -36,7 +36,7 @@ Foi usando composer para carregar as classes com autoload não precisando dar re
 Escrevi códigos javascript/ajax para dar performance ao sistema principalmente na parte de gestão das tarefas aonde não existe reload da página para mudança de status e pode ser observado quando o status é trocado pela mudança de layout que é inferida.
 
 ## PHP
-O projeto está rodando no servidor em PHP7.3, versão mais atual e estável no momento.
+O projeto está rodando no servidor em PHP7.3 versão mais atual e estável no momento.
 
 ## ModRewrite
 O .htaccess e o banco de dados estão sendo anexados ao projeto.
