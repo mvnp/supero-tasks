@@ -151,6 +151,7 @@
                     <a data-task="<?php echo $task['id'] ?>" data-acao="setToUrgent" class="responsive-buttons acao btn <?php echo (($task['status'] == 'URGENT') ? "btn-success": "btn-primary") ?> btn-xs">Urgente</a>
                     <a data-task="<?php echo $task['id'] ?>" data-acao="setToFinished" class="responsive-buttons acao btn <?php echo (($task['status'] == 'FINISHED') ? "btn-success": "btn-primary") ?> btn-xs">Finalizado</a>
                     <a href="#" class="btn btn-default btn-xs hide hidden">Comentar</a>
+                    <a href="<?php echo URL . "tasks/edit/{$task['id']}" ?>" class="responsive-buttons editar btn btn-primary btn-xs">Editar</a>                      
                     <a onclick="return confirm('Deseja excluir essa tarefa?');" data-task="<?php echo $task['id'] ?>" data-telement="task_<?php echo $task['id'] ?>" class="responsive-buttons delete btn btn-danger btn-xs">Excluir</a>                      
                   </div>
                 </div>

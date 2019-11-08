@@ -159,6 +159,11 @@ class Tasks_Model extends \App\Model
 		return $tasks;		
 	}
 
+	public function getTaskDataForEdition($id)
+	{
+		return $stmt = $this->db->selectOne("SELECT * FROM supero_tasks WHERE id = '$id'");
+	}	
+
 	/**
 	 * Set Task Status To New
 	 * @return [type] [description]
@@ -220,6 +225,15 @@ class Tasks_Model extends \App\Model
 	public function selectUsers()
 	{
 		return $stmt = $this->db->select("SELECT id, name FROM supero_users ORDER BY name ASC");
+	}
+
+	/**
+	 * Set Task Status To New
+	 * @return [type] [description]
+	 */
+	public function updateTask($postData, $id)
+	{
+		return $this->db->update('supero_tasks', $postData, "id = '$id'");
 	}
 
 	/**

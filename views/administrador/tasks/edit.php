@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <?php echo $this->title ?>
+        <?php echo $this->tittle ?>
         <small><?php echo $this->subtitle ?></small>
       </h1>
       <ol class="breadcrumb">
@@ -17,7 +17,7 @@
       <!-- SELECT2 EXAMPLE -->
       <div id="taskBox" class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">Novo registro</h3>
+          <h3 class="box-title">Editar registro existente</h3>
 
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget=""><i class="fa fa-minus"></i></button>
@@ -27,15 +27,15 @@
 
         <!-- /.box-header -->
         <div class="box-body">
-          <form action="<?php echo URL . 'tasks/add_' ?>" method="post" enctype="application/x-www-url-encoded" autocomplet="off">
+          <form action="<?php echo URL . "tasks/edit_/{$this->task['id']}" ?>" method="post" enctype="application/x-www-url-encoded" autocomplet="off">
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Quem está delegando a tarefa?</label>
                   <select class="form-control" style="width: 100%" required name="created_us">
-                    <option value="" selected="selected">Selecione ..</option>
+                    <option value="">Selecione ..</option>
                     <?php foreach ($this->users as $validUsers => $usrs): ?>
-                      <option value="<?php echo $usrs['id'] ?>"><?php echo $usrs['name'] ?></option>
+                      <option <?php echo ((isset($this->task['created_us']) && $this->task['created_us'] == $usrs['id']) ? "selected='selected'" :"") ?> value="<?php echo $usrs['id'] ?>"><?php echo $usrs['name'] ?></option>
                     <?php endforeach ?>
                   </select>
                 </div>
@@ -44,9 +44,9 @@
                 <div class="form-group">
                   <label>A quem se destina a tarefa?</label>
                   <select class="form-control" style="width: 100%" required name="created_to">
-                    <option value="" selected="selected">Selecione ..</option>
+                    <option value="">Selecione ..</option>
                     <?php foreach ($this->users as $validUsers => $usrs): ?>
-                      <option value="<?php echo $usrs['id'] ?>"><?php echo $usrs['name'] ?></option>
+                      <option <?php echo ((isset($this->task['created_to']) && $this->task['created_to'] == $usrs['id']) ? "selected='selected'" :"") ?> value="<?php echo $usrs['id'] ?>"><?php echo $usrs['name'] ?></option>
                     <?php endforeach ?>
                   </select>
                 </div>
@@ -60,7 +60,7 @@
                     <div class="input-group-addon">
                       <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control pull-right" id="datepicker_2" required name="finished_at" autocomplet="off">
+                    <input type="text" class="form-control pull-right" id="datepicker_2" required value="<?php echo ((isset($this->task['finished_at'])) ? date("d/m/Y", strtotime($this->task['finished_at'])) : "") ?>" name="finished_at" autocomplet="off">
                   </div>
                 </div>
               </div>
@@ -68,34 +68,33 @@
                 <div class="form-group">
                   <label>Categoria da tarefa?</label>
                   <select class="form-control" style="width: 100%" name="categoria" readonly>
-                    <option value="" selected="selected">Selecione ..</option>
-                    <option value="5">Tarefa de Casa</option>
-                    <option value="6">Tarefa do Trabalho</option>
-                    <option value="7">Tarefas adicionais</option>
+                    <option value="">Selecione ..</option>
+                    <option value="5" <?php echo ((isset($this->task['categoria']) && $this->task['categoria'] == "5") ? "selected='selected'" : ""); ?>>Tarefa de Casa</option>
+                    <option value="6" <?php echo ((isset($this->task['categoria']) && $this->task['categoria'] == "6") ? "selected='selected'" : ""); ?>>Tarefa do Trabalho</option>
+                    <option value="7" <?php echo ((isset($this->task['categoria']) && $this->task['categoria'] == "7") ? "selected='selected'" : ""); ?>>Tarefas adicionais</option>
                   </select>
                 </div>
               </div>
-            </div>            
+            </div>   
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
                   <label>Título da tarefa</label>
-                  <input type="text" class="form-control" style="width: 100%" name="title" required>
+                  <input type="text" class="form-control" style="width: 100%" value="<?php echo ((isset($this->task['title'])) ? $this->task['title'] : "") ?>" name="title" required>
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="form-group">
                   <label>Descrição</label>
-                  <textarea class="form-control" style="width: 100%; height: 150px" name="description" required></textarea>
+                  <textarea class="form-control" style="width: 100%; height: 150px" name="description" required><?php echo ((isset($this->task['description'])) ? $this->task['description'] : "") ?></textarea>
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="form-group">
                   <input type="hidden" name="status" value="NEW" required />
-                  <input type="hidden" name="created_dt" value="<?php echo date("Y-m-d") ?>" required />
-                  <input type="hidden" name="created_at" value="<?php echo date("Y-m-d H:i:s") ?>" required />                  
+                  <input type="hidden" name="team" value="<?php echo $this->task['created_to'] ?>" required />
                   <input type="hidden" name="updated_at" value="<?php echo date("Y-m-d H:i:s") ?>" required />
-                  <input type="submit" class="btn btn-success btn-block" name="submit" value="Cadastrar tarefa" />
+                  <input type="submit" class="btn btn-success btn-block" value="Atualizar tarefa" />
                 </div>
               </div>
             </div>

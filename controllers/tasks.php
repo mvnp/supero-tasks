@@ -64,6 +64,46 @@ class Tasks extends \App\Controller
 	}
 
 	/**
+	 * Render View To Edit Existing Task
+	 * @return [type] [description]
+	 */
+	public function edit($id)
+	{
+		if(!isset($id) || is_null($id))
+			header("Location: " . URL . "tasks/tm");
+
+		$this->view->tittle = "Edição";
+		$this->view->subtitle = "Editar tarefa";
+		
+		$this->view->task = $this->model->getTaskDataForEdition($id);
+		$this->view->users = $this->model->selectUsers();
+		$this->view->renderH("tasks/edit", false, true);
+	}	
+
+	/**
+	 * Send To Model New Task To Insert On Database
+	 * @return [type] [description]
+	 */
+	public function edit_($id)
+	{		
+		if(!isset($id) || is_null($id))
+			header("Location: " . URL . "tasks/tm");
+
+		$task = $_POST;
+		$task['team'] = strip_tags($_POST['created_to']);
+		$task['finished_at'] = str_replace("/", "-", implode("/", array_reverse(explode("/", $_POST['finished_at']))));
+		$task['finished_at'] = $task['finished_at'] . " " . date("H:i:s");
+
+		/* If Not Minimum Info Passed, Redirect to Form */
+		if(count(array_filter($task)) < 9)
+			header("Location: " . URL . "tasks/add");
+
+		/* cadastrar tarefa no banco de dados */
+		$cadastrar = $this->model->updateTask($task, $id);
+			header("Location: " . URL . "tasks/tm");
+	}
+
+	/**
 	 * Load Default Timeline Of Tasks With Or Without Filter
 	 * @return [type] [description]
 	 */
