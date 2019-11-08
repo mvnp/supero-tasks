@@ -25,6 +25,7 @@ class Session
 	{
 		if(!isset($_SESSION)) session_start();
 		unset($_SESSION['loggedIn']);
+		unset($_SESSION['email']);
 		session_destroy();
 	}
 }

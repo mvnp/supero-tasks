@@ -1,7 +1,19 @@
-# Yeti! Framework
+# Supero! TASKS
 
-## UPDATE
-Todas as views do adminlte podem ser acessadas para modificação no diretório abaixo e o controller que faz gestão dessas views é o Adminlte.php na pasta Controllers
+## Projeto
+Este projeto consiste num sistema de gestão diária de tarefas que pode ser evoluido conforme necessidade. Hoje, ele já adiciona, atualiza, exclui as tarefas além de ter várias funcionalidades diferenciais para gestão completa das tarefas. Dentre as funcionalidades estão:
+- Criação das Tarefas
+- Exclusão das Tarefas
+- Atualização das tarefas para:
+ - Novo
+ - Executando
+ - Aguardando
+ - Urgente
+ - Finalizado
+
+
+
+
 - **views/administrador/adminlte**
 
 É requisito trabalhar e enviar pull requests na branch **dev**

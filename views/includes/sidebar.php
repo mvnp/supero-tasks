@@ -125,6 +125,9 @@
             <li><a href="<?php echo URL . 'tasks/tm/f_urgente' ?>"><i class="fa fa-circle-o"></i> Urgente</a></li>
             <li><a href="<?php echo URL . 'tasks/tm/f_terminado'?>"><i class="fa fa-circle-o"></i> Terminadas</a></li>
           </ul>
+          <ul class="treeview-menu" style="display: block">
+            <li class="bg-red"><a style="color:#fff!important" href="<?php echo URL . 'login/logout'?>"><i class="fa fa-circle-o"></i> Sair</a></li>
+          </ul>
         </li>
       </ul>
     </section>
