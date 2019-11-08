@@ -40,6 +40,9 @@ class Tasks_Model extends \App\Model
 			case 'URGENT':
 				$where .= " AND status = 'URGENT'";
 				break;
+			case 'OUTDEADLINE':
+				$where .= " AND finished_at < CURDATE() AND status != 'FINISHED'";
+				break;
 			case 'FINISHED':
 				$where .= " AND status = 'FINISHED'";
 				break;

@@ -139,19 +139,19 @@
               <li data-status="<?php echo $task['status'] ?>">
                 <i data-itask="<?php echo $task['id'] ?>" class="fa fa-comments bg-blue"></i>
                 <div id="task_<?php echo $task['id'] ?>" class="timeline-item <?php echo $backg ?>" data-statuscolor="<?php echo $backg ?>">
-                  <span class="time"><i class="fa fa-clock-o"></i> <?php echo "#" . str_pad($task['id'], 10, 0, STR_PAD_LEFT) ?></span>
+                  <span class="time"><i class="fa fa-clock-o"></i> <?php echo "#" . str_pad($task['id'], 10, 0, STR_PAD_LEFT) ?>&nbsp;&nbsp;<?php echo "<strong>".date("d/m/Y H:i:s", strtotime($task['finished_at']))."</strong>" ?></span>
                   <h3 class="timeline-header">
                     <?php echo "<a href='#'>{$task['author']}</a>"; ?></a> criou a tarefa <strong><?php echo strtolower(str_replace(".", "", $task['title'])); ?></strong> para <?php echo "<a href='#'>{$task['executer']}</a>"; ?>
                   </h3>
                   <div class="timeline-body description-task"><?php echo $task['description']; ?></div>
                   <div class="timeline-footer">
-                    <a data-task="<?php echo $task['id'] ?>" data-acao="setToNew" class="acao btn <?php echo (($task['status'] == 'NEW') ? "btn-success": "btn-primary") ?> btn-xs">Novo</a>
-                    <a data-task="<?php echo $task['id'] ?>" data-acao="setToWork" class="acao btn <?php echo (($task['status'] == 'WORK') ? "btn-success": "btn-primary") ?> btn-xs">Executando</a>
-                    <a data-task="<?php echo $task['id'] ?>" data-acao="setToWaiting" class="acao btn <?php echo (($task['status'] == 'WAITING') ? "btn-success": "btn-primary") ?> btn-xs">Aguardando</a>
-                    <a data-task="<?php echo $task['id'] ?>" data-acao="setToUrgent" class="acao btn <?php echo (($task['status'] == 'URGENT') ? "btn-success": "btn-primary") ?> btn-xs">Urgente</a>
-                    <a data-task="<?php echo $task['id'] ?>" data-acao="setToFinished" class="acao btn <?php echo (($task['status'] == 'FINISHED') ? "btn-success": "btn-primary") ?> btn-xs">Finalizado</a>
-                    <a href="#" class="btn btn-default btn-xs">Comentar</a>
-                    <a onclick="return confirm('Deseja excluir essa tarefa?');" data-task="<?php echo $task['id'] ?>" data-telement="task_<?php echo $task['id'] ?>" class="delete btn btn-danger btn-xs">Excluir</a>                      
+                    <a data-task="<?php echo $task['id'] ?>" data-acao="setToNew" class="responsive-buttons acao btn <?php echo (($task['status'] == 'NEW') ? "btn-success": "btn-primary") ?> btn-xs">Novo</a>
+                    <a data-task="<?php echo $task['id'] ?>" data-acao="setToWork" class="responsive-buttons acao btn <?php echo (($task['status'] == 'WORK') ? "btn-success": "btn-primary") ?> btn-xs">Executando</a>
+                    <a data-task="<?php echo $task['id'] ?>" data-acao="setToWaiting" class="responsive-buttons acao btn <?php echo (($task['status'] == 'WAITING') ? "btn-success": "btn-primary") ?> btn-xs">Aguardando</a>
+                    <a data-task="<?php echo $task['id'] ?>" data-acao="setToUrgent" class="responsive-buttons acao btn <?php echo (($task['status'] == 'URGENT') ? "btn-success": "btn-primary") ?> btn-xs">Urgente</a>
+                    <a data-task="<?php echo $task['id'] ?>" data-acao="setToFinished" class="responsive-buttons acao btn <?php echo (($task['status'] == 'FINISHED') ? "btn-success": "btn-primary") ?> btn-xs">Finalizado</a>
+                    <a href="#" class="btn btn-default btn-xs hide hidden">Comentar</a>
+                    <a onclick="return confirm('Deseja excluir essa tarefa?');" data-task="<?php echo $task['id'] ?>" data-telement="task_<?php echo $task['id'] ?>" class="responsive-buttons delete btn btn-danger btn-xs">Excluir</a>                      
                   </div>
                 </div>
               </li>

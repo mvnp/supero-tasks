@@ -122,6 +122,7 @@
             <li><a href="<?php echo URL . 'tasks/tm/f_novas'?>"><i class="fa fa-circle-o"></i> Novas</a></li>
             <li><a href="<?php echo URL . 'tasks/tm/f_andamento'?>"><i class="fa fa-circle-o"></i> Em andamento</a></li>
             <li><a href="<?php echo URL . 'tasks/tm/f_aguardando' ?>"><i class="fa fa-circle-o"></i> Aguardando</a></li>
+            <li><a href="<?php echo URL . 'tasks/tm/f_atrasado' ?>"><i class="fa fa-circle-o"></i> Atrasado</a></li>
             <li><a href="<?php echo URL . 'tasks/tm/f_urgente' ?>"><i class="fa fa-circle-o"></i> Urgente</a></li>
             <li><a href="<?php echo URL . 'tasks/tm/f_terminado'?>"><i class="fa fa-circle-o"></i> Terminadas</a></li>
           </ul>

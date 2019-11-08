@@ -203,6 +203,9 @@ class Tasks extends \App\Controller
 				case 'urgente':
 					$filter = 'URGENT';
 					break;
+				case 'atrasado':
+					$filter = 'OUTDEADLINE';
+					break;
 				case 'terminado':
 					$filter = 'FINISHED';
 					break;
