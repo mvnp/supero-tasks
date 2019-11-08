@@ -5,11 +5,11 @@ Este projeto consiste num sistema de gestão diária de tarefas que pode ser evo
 - Criação das Tarefas
 - Exclusão das Tarefas
 - Atualização das tarefas para:
- - Novo
- - Executando
- - Aguardando
- - Urgente
- - Finalizado
+  - Novo
+  - Executando
+  - Aguardando
+  - Urgente
+  - Finalizado
 
 
 
