@@ -67,7 +67,7 @@ class Tasks extends \App\Controller
 	 * Render View To Edit Existing Task
 	 * @return [type] [description]
 	 */
-	public function edit($id)
+	public function edit(int $id)
 	{
 		if(!isset($id) || is_null($id))
 			header("Location: " . URL . "tasks/tm");
@@ -84,7 +84,7 @@ class Tasks extends \App\Controller
 	 * Send To Model New Task To Insert On Database
 	 * @return [type] [description]
 	 */
-	public function edit_($id)
+	public function edit_(int $id)
 	{		
 		if(!isset($id) || is_null($id))
 			header("Location: " . URL . "tasks/tm");
@@ -99,7 +99,7 @@ class Tasks extends \App\Controller
 			header("Location: " . URL . "tasks/add");
 
 		/* cadastrar tarefa no banco de dados */
-		$cadastrar = $this->model->updateTask($task, $id);
+		$cadastrar = $this->model->updateTask($id, $task);
 			header("Location: " . URL . "tasks/tm");
 	}
 
@@ -160,7 +160,7 @@ class Tasks extends \App\Controller
 	 * Decide Wich Function Using To Update Task Status
 	 * @return [type] [description]
 	 */
-	private function passTaskStatusToUpdate(String $acao, Array $postData)
+	private function passTaskStatusToUpdate(string $acao, array $postData) : string
 	{
 		$response = 0;
 		if($acao == 'setToNew') $response = $this->setToNew($postData);
@@ -176,7 +176,7 @@ class Tasks extends \App\Controller
 	 * Set Task Status To New
 	 * @return [type] [description]
 	 */
-	private function setToNew(Array $postData)
+	private function setToNew(array $postData) : string
 	{
 		$postData['status'] = 'NEW';
 		if($this->model->setToNew($postData) === true) return 'NEW';
@@ -186,7 +186,7 @@ class Tasks extends \App\Controller
 	 * Set Task Status To Working
 	 * @return [type] [description]
 	 */
-	private function setToWork(Array $postData)
+	private function setToWork(array $postData) : string
 	{
 		$postData['status'] = 'WORK';
 		if($this->model->setToWork($postData) === true) return 'WORK';
@@ -196,7 +196,7 @@ class Tasks extends \App\Controller
 	 * Set Task Status To Waiting
 	 * @return [type] [description]
 	 */
-	private function setToWaiting(Array $postData)
+	private function setToWaiting(array $postData) : string
 	{
 		$postData['status'] = 'WAITING';
 		if($this->model->setToWaiting($postData) === true) return 'WAITING';
@@ -206,7 +206,7 @@ class Tasks extends \App\Controller
 	 * Set Task Status To Urgent
 	 * @return [type] [description]
 	 */
-	private function setToUrgent(Array $postData)
+	private function setToUrgent(array $postData) : string
 	{
 		$postData['status'] = 'URGENT';
 		if($this->model->setToUrgent($postData) === true) return 'URGENT';
@@ -216,7 +216,7 @@ class Tasks extends \App\Controller
 	 * Set Task Status To Finished
 	 * @return [type] [description]
 	 */
-	private function setToFinished(Array $postData)
+	private function setToFinished(array $postData) : string
 	{
 		$postData['status'] = 'FINISHED';
 		if($this->model->setToFinished($postData) === true) return 'FINISHED';
@@ -226,7 +226,7 @@ class Tasks extends \App\Controller
 	 * Extract filter param to SQL Query
 	 * @return [type] [description]
 	 */
-	private function filterParams($param = null)
+	private function filterParams($param = null) : string
 	{
 		$explode = ((isset(explode("/f_", $param)[1]))? explode("/f_", $param)[1] : 'NEW');
 		if(isset($explode) && !is_null($explode)){
@@ -250,7 +250,7 @@ class Tasks extends \App\Controller
 					$filter = 'FINISHED';
 					break;
 				default:
-					$filter = null;
+					$filter = "";
 					break;
 			}
 
@@ -262,7 +262,7 @@ class Tasks extends \App\Controller
 	 * Convert Date From To Send In Filter
 	 * @return [type] [description]
 	 */
-	private function extractFromDateRange($rangeDate)
+	private function extractFromDateRange(string $rangeDate) : string
 	{
 		$rangeDate = explode(" - ", trim($rangeDate))[0];
 		return $rangeDate = str_replace("/", "-", implode("/", array_reverse(explode("/", $rangeDate))));
@@ -272,7 +272,7 @@ class Tasks extends \App\Controller
 	 * Convert Date To To Send In Filter
 	 * @return [type] [description]
 	 */
-	private function extractToDateRange($rangeDate)
+	private function extractToDateRange(string $rangeDate) : string
 	{
 		$rangeDate = explode(" - ", trim($rangeDate))[1];
 		return $rangeDate = str_replace("/", "-", implode("/", array_reverse(explode("/", $rangeDate))));
@@ -282,7 +282,7 @@ class Tasks extends \App\Controller
 	 * Get Tasks Dates Day by Day To Generate SQL And Timeline
 	 * @return [type] [description]
 	 */
-	private function tasksDates()
+	private function tasksDates() : array
 	{
 		$returnDates = [];
 		foreach ($this->model->selectGoupedTasksDates() as $dates => $date) {
@@ -294,17 +294,18 @@ class Tasks extends \App\Controller
 	 * Delete Specific Task On Database
 	 * @return [type] [description]
 	 */
-	public function delspecifictask()
+	public function delspecifictask() : boolean
 	{
 		$id = (int)strip_tags($_POST['idtask']);
 
 		if( $id !== 0 ){
 			if($this->model->delspecifictask($id) == true){
 				echo json_encode(true);
-				return;
+				return true;
 			} 
 
 			echo json_encode(false);
+			return false;
 		}
 	}
 }

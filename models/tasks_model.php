@@ -21,7 +21,7 @@ class Tasks_Model extends \App\Model
 	 * Draw Timeline With Simple Filter Data
 	 * @return [type] [description]
 	 */
-	public function selectTasksGoupedByDates($tasksDates, $filter = null)
+	public function selectTasksGoupedByDates(array $tasksDates, $filter = null) : array
 	{
 		$tasks = [];
 		$today = date("Y-m-d");
@@ -71,7 +71,7 @@ class Tasks_Model extends \App\Model
 	 * Draw Timeline With Specialized Filter Data
 	 * @return [type] [description]
 	 */
-	public function selectTasksGoupedByDatesWithSearch($pstFilter)
+	public function selectTasksGoupedByDatesWithSearch(array $pstFilter) : array
 	{		
 		$tasks = [];
 		$today = date("Y-m-d");
@@ -159,7 +159,7 @@ class Tasks_Model extends \App\Model
 		return $tasks;		
 	}
 
-	public function getTaskDataForEdition($id)
+	public function getTaskDataForEdition(int $id) : array
 	{
 		return $stmt = $this->db->selectOne("SELECT * FROM supero_tasks WHERE id = '$id'");
 	}	
@@ -168,7 +168,7 @@ class Tasks_Model extends \App\Model
 	 * Set Task Status To New
 	 * @return [type] [description]
 	 */
-	public function setToNew(Array $postData)
+	public function setToNew(array $postData) : boolean
 	{
 		return $this->db->update('supero_tasks', $postData, "id = {$postData['id']}");
 	}
@@ -177,7 +177,7 @@ class Tasks_Model extends \App\Model
 	 * Set Task Status To Working
 	 * @return [type] [description]
 	 */
-	public function setToWork(Array $postData)
+	public function setToWork(array $postData) : boolean
 	{
 		return $this->db->update('supero_tasks', $postData, "id = {$postData['id']}");
 	}
@@ -186,7 +186,7 @@ class Tasks_Model extends \App\Model
 	 * Set Task Status To Waiting
 	 * @return [type] [description]
 	 */
-	public function setToWaiting(Array $postData)
+	public function setToWaiting(array $postData) : boolean
 	{
 		return $this->db->update('supero_tasks', $postData, "id = {$postData['id']}");
 	}
@@ -195,7 +195,7 @@ class Tasks_Model extends \App\Model
 	 * Set Task Status To Urgent
 	 * @return [type] [description]
 	 */
-	public function setToUrgent(Array $postData)
+	public function setToUrgent(array $postData) : boolean
 	{
 		return $this->db->update('supero_tasks', $postData, "id = {$postData['id']}");
 	}
@@ -204,7 +204,7 @@ class Tasks_Model extends \App\Model
 	 * Set Task Status To Finished
 	 * @return [type] [description]
 	 */
-	public function setToFinished(Array $postData)
+	public function setToFinished(array $postData) : boolean
 	{
 		return $this->db->update('supero_tasks', $postData, "id = {$postData['id']}");
 	}	
@@ -213,7 +213,7 @@ class Tasks_Model extends \App\Model
 	 * Insert New Task On Database
 	 * @param  [type] $table [description]
 	 */
-	public function create($table, $postData)
+	public function create(string $table, array $postData) : boolean
 	{
 		return $this->db->insert($table, $postData);
 	}
@@ -222,7 +222,7 @@ class Tasks_Model extends \App\Model
 	 * Select All Users On Database
 	 * @param  [type] $table [description]
 	 */
-	public function selectUsers()
+	public function selectUsers() : array
 	{
 		return $stmt = $this->db->select("SELECT id, name FROM supero_users ORDER BY name ASC");
 	}
@@ -231,7 +231,7 @@ class Tasks_Model extends \App\Model
 	 * Set Task Status To New
 	 * @return [type] [description]
 	 */
-	public function updateTask($postData, $id)
+	public function updateTask(int $id, array $postData) : boolean
 	{
 		return $this->db->update('supero_tasks', $postData, "id = '$id'");
 	}
@@ -240,7 +240,7 @@ class Tasks_Model extends \App\Model
 	 * Delete Specific Task On Database
 	 * @param  [type] $table [description]
 	 */
-	public function delspecifictask($id)
+	public function delspecifictask(int $id) : boolean
 	{
 		$result = $this->db->delete("supero_tasks", "id = '$id'");
 		return $result;
